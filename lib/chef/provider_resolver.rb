@@ -47,7 +47,7 @@ class Chef
     def enabled_handlers
       @enabled_handlers ||=
         providers.select do |klass|
-          klass.provides?(node, resource)
+          klass.provides?(node, resource.resource_name)
         end.sort {|a,b| a.to_s <=> b.to_s }
     end
 

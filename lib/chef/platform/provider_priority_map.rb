@@ -1,6 +1,4 @@
 
-require 'chef/providers'
-
 class Chef
   class Platform
     class ProviderPriorityMap
@@ -11,6 +9,7 @@ class Chef
       end
 
       def load_default_map
+        require 'chef/providers'
 
         #
         # Linux
@@ -71,6 +70,7 @@ class Chef
       end
 
       def priority_map
+        require 'chef/node_map'
         @priority_map ||= Chef::NodeMap.new
       end
 
